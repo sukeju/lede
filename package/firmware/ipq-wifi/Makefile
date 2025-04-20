@@ -6,9 +6,9 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL=$(PROJECT_GIT)/project/firmware/qca-wireless.git
-PKG_SOURCE_DATE:=2024-10-08
-PKG_SOURCE_VERSION:=dcbab62272bf5cab2ed857bc655d240970e14f2a
-PKG_MIRROR_HASH:=23fc47a0fd9f39defe272b9f5d5b08622e7762a57bc4830965972ee89d89f481
+PKG_SOURCE_DATE:=2025-04-08
+PKG_SOURCE_VERSION:=9591c9b7578af3548c35bb80cd6c37978669f7c9
+PKG_MIRROR_HASH:=74e7c92fdd68488ad5b761fec78eb98fa0dcab6ba2aab04fb463108610e8b758
 
 PKG_FLAGS:=nonshared
 
@@ -28,6 +28,7 @@ endef
 # <https://wireless.wiki.kernel.org/en/users/drivers/ath10k/boardfiles>
 
 ALLWIFIBOARDS:= \
+	alibaba_ap4220 \
 	aliyun_ap8220 \
 	arcadyan_aw1000 \
 	buffalo_wxr-5950ax12 \
@@ -60,6 +61,7 @@ ALLWIFIBOARDS:= \
 	xiaomi_rm1800 \
 	yuncore_ax880 \
 	yuncore_fap650 \
+	zbtlink_zbt-z800ax \
 	zte_mf269 \
 	zte_mf287 \
 	zte_mf287plus \
@@ -143,6 +145,7 @@ endef
 # Place files in this directory as board-<devicename>.<qca4019|qca9888|qca9889|qca9984|qca99x0|ipq8074>
 # Add $(eval $(call generate-ipq-wifi-package,<devicename>,<display name>))
 
+$(eval $(call generate-ipq-wifi-package,alibaba_ap4220,Alibaba AP4220))
 $(eval $(call generate-ipq-wifi-package,aliyun_ap8220,Aliyun AP8220))
 $(eval $(call generate-ipq-wifi-package,arcadyan_aw1000,Arcadyan AW1000))
 $(eval $(call generate-ipq-wifi-package,buffalo_wxr-5950ax12,Buffalo WXR-5950AX12))
@@ -175,6 +178,7 @@ $(eval $(call generate-ipq-wifi-package,xiaomi_ax9000,Xiaomi AX9000))
 $(eval $(call generate-ipq-wifi-package,xiaomi_rm1800,Xiaomi RM1800))
 $(eval $(call generate-ipq-wifi-package,yuncore_ax880,Yuncore AX880))
 $(eval $(call generate-ipq-wifi-package,yuncore_fap650,Yuncore FAP650))
+$(eval $(call generate-ipq-wifi-package,zbtlink_zbt-z800ax,Zbtlink ZBT-Z800AX))
 $(eval $(call generate-ipq-wifi-package,zte_mf269,ZTE MF269))
 $(eval $(call generate-ipq-wifi-package,zte_mf287,ZTE MF287))
 $(eval $(call generate-ipq-wifi-package,zte_mf287plus,ZTE MF287Plus))
