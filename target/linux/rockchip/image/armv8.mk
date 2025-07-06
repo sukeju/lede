@@ -22,6 +22,16 @@ define Device/ariaboard_photonicat
 endef
 TARGET_DEVICES += ariaboard_photonicat
 
+define Device/ariaboard_photonicat2
+  DEVICE_VENDOR := Ariaboard
+  DEVICE_MODEL := Photonicat2
+  SOC := rk3576
+  DEVICE_DTS := rockchip/rk3576-photonicat2
+  UBOOT_DEVICE_NAME := evb-rk3576
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3576 | pine64-img | gzip | append-metadata
+endef
+TARGET_DEVICES += ariaboard_photonicat2
+
 define Device/armsom_sige1
   DEVICE_VENDOR := ArmSoM
   DEVICE_MODEL := Sige1
@@ -576,13 +586,13 @@ define Device/widora_mangopi-m28
   SOC := rk3528
   UBOOT_DEVICE_NAME := generic-rk3528
   IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-aic8800s kmod-r8168 wpad-openssl -urngd
+  DEVICE_PACKAGES := kmod-aic8800s wpad-openssl -urngd
 endef
 
 define Device/widora_mangopi-m28c
 $(call Device/widora_mangopi-m28)
   DEVICE_MODEL := MangoPi M28C
-  DEVICE_PACKAGES += kmod-gpio-button-hotplug kmod-usb-serial-option
+  DEVICE_PACKAGES += kmod-usb-serial-option
 endef
 TARGET_DEVICES += widora_mangopi-m28c
 
